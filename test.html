@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.getJSON("data.json", function(data){
+                for(var i in data){
+                    $("#output").append("<li><strong>" + data[i].division + "</strong></li>");
+                    for(var j in data[i].person){
+                        $("#output").append("<li>" + data[i].person[j].name + "（" + data[i].person[j].age + "才）</li>\n");
+                    }
+                }
+            });
+        });
+    </script>
+    <div>aaa</div>
+    <ul id="output"></ul>
+</body>
+</html>
